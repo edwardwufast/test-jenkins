@@ -4,6 +4,7 @@ pipeline {
     stage('stage0') {
       steps {
         echo 'jjj'
+        jiraComment(issueKey: 'JJT-4', body: 'klk;fsfdsfdsf')
       }
     }
     stage('stage1') {
@@ -11,7 +12,7 @@ pipeline {
         sh 'echo "hello"'
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         sleep 3
       }

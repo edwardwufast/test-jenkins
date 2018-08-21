@@ -2,9 +2,18 @@ pipeline {
   agent any
   stages {
     stage('stage0') {
-      steps {
-        echo 'jjj'
-        jiraComment(issueKey: 'JJT-4', body: 'klk;fsfdsfdsf')
+      parallel {
+        stage('stage0') {
+          steps {
+            echo 'jjj'
+            jiraComment(issueKey: 'JJT-4', body: 'klk;fsfdsfdsf')
+          }
+        }
+        stage('') {
+          steps {
+            sleep 1
+          }
+        }
       }
     }
     stage('stage1') {
